@@ -14,14 +14,13 @@ const App = () => {
       setNotes(response.data);
     });
   }, []);
-  console.log('render', notes.length, 'notes')
+  console.log("render", notes.length, "notes");
 
   const addNote = (event) => {
     event.preventDefault();
     const noteObject = {
       content: newNote,
       important: Math.random() < 0.5,
-      id: notes.length + 1,
     };
     setNotes(notes.concat(noteObject));
     setNewNote("");
@@ -42,7 +41,6 @@ const App = () => {
         <button onClick={() => setShowAll(!showAll)}>
           Show {showAll ? "important" : "all"}
         </button>
-        {!showAll && <h3>IMPORTANT!</h3>}
       </div>
       <ul>
         {notesToShow.map((note) => (
